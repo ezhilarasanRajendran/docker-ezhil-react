@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t docker-ezhil-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true docker-ezhil-react npm run test
